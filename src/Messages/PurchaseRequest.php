@@ -99,7 +99,7 @@ class PurchaseRequest extends AbstractRequest
 
     public function getUserAgent()
     {
-        return $this->getParameter('userAgent') ?? request()->server('HTTP_USER_AGENT');
+        return $this->getParameter('userAgent');
     }
 
     public function setPayeeId($value)

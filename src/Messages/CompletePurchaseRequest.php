@@ -4,7 +4,6 @@ namespace Empatix\OmnipaySwedbank\Messages;
 
 use Empatix\OmnipaySwedbank\Gateway;
 use Empatix\OmnipaySwedbank\Messages\Response;
-use Empatix\OmnipaySwedbank\Messages\AbstractRequest;
 
 class CompletePurchaseRequest extends PurchaseRequest
 {
