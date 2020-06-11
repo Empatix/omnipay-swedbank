@@ -1,0 +1,26 @@
+HTTP/1.1 400 Bad Request
+Cache-Control: private
+Content-Type: application/jsson
+Server: Microsoft-IIS/7.5
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Fri, 22 Feb 2013 15:55:07 GMT
+
+{
+    "sessionId": "d8ad4ec5-940d-4b56-8daa-e288d6772af0",
+    "type": "https://api.payex.com/psp/errordetail/inputerror",
+    "title": "Error in input data",
+    "status": 400,
+    "instance": "http://api.externalintegration.payex.com/psp/creditcard/payments",
+    "detail": "Input validation failed, error description in problems node!",
+    "problems": [
+        {
+            "name": "payment.urls",
+            "description": "Cannot deserialize the current JSON array (e.g. [1,2,3]) into type 'PayEx.Psp.InstrumentPaymentsApi.Models.Urls.UrlsModel' because the type requires a JSON object (e.g. {\"name\":\"value\"}) to deserialize correctly.\r\nTo fix this error either change the JSON to a JSON object (e.g. {\"name\":\"value\"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List<T> that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.\r\nPath 'payment.urls', line 16, position 10."
+        },
+        {
+            "name": "payment.payeeInfo.payeeId",
+            "description": "Error converting value \"foo-payee-id\" to type 'System.Guid'. Path 'payment.payeeInfo.payeeId', line 25, position 27."
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "name": "empatix/omnipay-swedbank",
+    "description": "Swedbank Payment driver for Omnipay",
+    "keywords": [
+        "empatix",
+        "omnipay",
+        "omnipay-swedbank"
+    ],
+    "homepage": "https://github.com/empatix/omnipay-swedbank",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Martin Schei",
+            "email": "martin.schei@empatix.no",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Empatix\\OmnipaySwedbank\\": "src"
+        }
+    },
+    "require": {
+        "omnipay/common": "~3.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~3.0",
+        "squizlabs/php_codesniffer": "^3"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}

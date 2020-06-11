@@ -1,0 +1,22 @@
+HTTP/1.1 400 Bad Request
+Cache-Control: private
+Content-Type: application/jsson
+Server: Microsoft-IIS/7.5
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Fri, 22 Feb 2013 15:55:07 GMT
+
+{
+    "sessionId": "94a08e50-0412-41b3-94af-5b923f54d336",
+    "type": "https://api.payex.com/psp/errordetail/notfound",
+    "title": "Not found",
+    "status": 404,
+    "instance": "http://api.externalintegration.payex.com/psp/creditcard/payments/7e6cdfc3-1276-44e9-9992-7cf4419750e1/cancellations",
+    "detail": "Not found!",
+    "problems": [
+        {
+            "name": "Payment not found",
+            "description": "The payment with the requested paymentId was not found"
+        }
+    ]
+}
