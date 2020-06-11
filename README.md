@@ -2,6 +2,11 @@
 
 **Swedbank driver for the Omnipay PHP payment processing library**
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/empatix/omnipay-swedbank.svg?style=flat-square)](https://packagist.org/packages/empatix/omnipay-swedbank)
+[![Build Status](https://img.shields.io/travis/empatix/omnipay-swedbank/master.svg?style=flat-square)](https://travis-ci.org/empatix/omnipay-swedbank)
+[![Quality Score](https://img.shields.io/scrutinizer/g/empatix/omnipay-swedbank.svg?style=flat-square)](https://scrutinizer-ci.com/g/empatix/omnipay-swedbank)
+[![Total Downloads](https://img.shields.io/packagist/dt/empatix/omnipay-swedbank.svg?style=flat-square)](https://packagist.org/packages/empatix/omnipay-swedbank)
+
 ## Installation
 
 Omnipay is installed via [Composer](http://getcomposer.org/). To install, simply add it
