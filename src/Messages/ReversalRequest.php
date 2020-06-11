@@ -65,12 +65,12 @@ class ReversalRequest extends PurchaseRequest
                     'Content-Type' => 'application/json; charset=utf-8',
                     'Accept' => 'application/problem+json; q=1.0, application/json; q=0.9',
                 ],
-                json_encode($data),
+                json_encode($data)
             );
 
         return $this->response = new Response(
             $this,
-            $result->getBody()->getContents(),
+            $result->getBody()->getContents()
         );
     }
 }
