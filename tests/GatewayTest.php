@@ -7,7 +7,7 @@ use Empatix\OmnipaySwedbank\Gateway;
 
 class GatewayTest extends GatewayTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

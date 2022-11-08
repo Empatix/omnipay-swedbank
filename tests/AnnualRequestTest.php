@@ -11,7 +11,7 @@ class AnnualRequestTest extends TestCase
     private $request;
     private $httpRequest;
 
-    public function setUp()
+    public function setUp(): void
     {
         $client = $this->getHttpClient();
         $this->httpRequest = $this->getHttpRequest();
