@@ -32,7 +32,7 @@ class PurchaseRequestTest extends TestCase
         $this->request->setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36');
         $this->request->setDescription('This is what you are paying for');
         $this->request->setCancelUrl('https://merchant-website/payment/cancel');
-        $this->request->setCompleteUrl('https://merchant-website/payment/complete');
+        $this->request->setReturnUrl('https://merchant-website/payment/complete');
         $this->request->setNotifyUrl('https://merchant-website/payment/callback');
         $this->request->setPayeeId('foo-payee-id');
         $this->request->setPayeeReference("1bd0558b-3a45-46af-b07a-c8cfdf298cd8");
@@ -54,7 +54,7 @@ class PurchaseRequestTest extends TestCase
                 "description" => "This is what you are paying for",
                 "urls" => [
                     "cancelUrl" => "https://merchant-website/payment/cancel",
-                    "completeUrl" => "https://merchant-website/payment/cancel",
+                    "completeUrl" => "https://merchant-website/payment/complete",
                     'callbackUrl' => 'https://merchant-website/payment/callback',
                 ],
                 "payeeInfo" => [

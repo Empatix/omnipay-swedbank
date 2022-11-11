@@ -32,11 +32,6 @@ class PurchaseRequest extends AbstractRequest
         return $this->getParameter('language');
     }
 
-    public function getTransactionReference()
-    {
-        return $this->getParameter('transactionReference');
-    }
-
     public function setMetaData($value)
     {
         $this->setParameter('metadata', $value);
@@ -72,26 +67,6 @@ class PurchaseRequest extends AbstractRequest
         return $this->getParameter('vatAmount');
     }
 
-    public function setCancelUrl($value)
-    {
-        $this->setParameter('cancelUrl', $value);
-    }
-
-    public function getCancelUrl()
-    {
-        return $this->getParameter('cancelUrl');
-    }
-
-    public function setCompleteUrl($value)
-    {
-       $this->setParameter('completeUrl', $value);
-    }
-
-    public function getCompleteUrl()
-    {
-        return $this->getParameter('completeUrl');
-    }
-
     public function setUserAgent($value)
     {
         $this->setParameter('userAgent', $value);
@@ -120,16 +95,6 @@ class PurchaseRequest extends AbstractRequest
     public function getPayeeReference()
     {
         return $this->getParameter('payeeReference');
-    }
-
-    public function setNotifyUrl($value)
-    {
-        $this->setParameter('notifyUrl', $value);
-    }
-
-    public function getNotifyUrl()
-    {
-        return $this->getParameter('notifyUrl');
     }
 
     public function sendData($data)
@@ -170,7 +135,7 @@ class PurchaseRequest extends AbstractRequest
                 'description' => $this->getDescription(),
                 'urls' => [
                     'cancelUrl' => $this->getCancelUrl(),
-                    'completeUrl' => $this->getCancelUrl(),
+                    'completeUrl' => $this->getReturnUrl(),
                     'callbackUrl' => $this->getNotifyUrl(),
                 ],
                 'payeeInfo' => [

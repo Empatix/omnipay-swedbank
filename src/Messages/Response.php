@@ -7,59 +7,68 @@ use Omnipay\Common\Message\RedirectResponseInterface;
 
 class Response extends AbstractResponse implements RedirectResponseInterface
 {
+    public function getTransactionReference()
+    {
+        if (isset($this->data['payment']['id'])) {
+            return $this->data['payment']['id'];
+        }
+    }
+
     public function isSuccessful()
     {
-        if (array_key_exists('reversal', $this->getData())) {
-            $state = $this->getData()['reversal']['transaction']['state'];
-            return $state == 'Completed';
+        if (isset($this->data['reversal']['transaction']['state'])) {
+            return 'Completed' === $this->data['reversal']['transaction']['state'];
         }
 
-        if (array_key_exists('cancellations', $this->getData())) {
-            $cancellations = $this->getData()['cancellations']['cancellationList'];
-            $state = $cancellations[0]['transaction']['state'];
-            return $state == 'Completed';
+        if (isset($this->data['cancellations'])) {
+            $cancellations = $this->data['cancellations']['cancellationList'];
+
+            return 'Completed' === $cancellations[0]['transaction']['state'];
         }
 
-        if (array_key_exists('capture', $this->getData())) {
-            $state = $this->getData()['capture']['transaction']['state'];
-            return $state == 'Completed';
+        if (isset($this->data['capture']['transaction']['state'])) {
+            return 'Completed' === $this->data['capture']['transaction']['state'];
         }
 
-        if (array_key_exists('payment', $this->getData())) {
-            if (array_key_exists('state', $this->getData()['payment'])) {
-                $state = $this->getData()['payment']['state'];
-                return $state == 'Ready';
-            }
+        if (isset($this->data['payment']['state'])) {
+            return 'Ready' === $this->data['payment']['state'];
         }
 
         return false;
     }
 
-    public function getTransactionReference()
+    public function isCancelled()
     {
-        if (array_key_exists('payment', $this->getData())) {
-            return $this->getData()['payment']['id'];
+        if (isset($this->data['payment']['state'])) {
+            return 'Aborted' === $this->data['payment']['state'];
         }
+
+        return false;
+    }
+
+    public function isPending()
+    {
+        if (isset($this->data['payment']['state'])) {
+            return 'Pending' === $this->data['payment']['state'];
+        }
+
+        return false;
     }
 
     public function isRedirect()
     {
-        if ($this->getRedirectAuthorizationUrl()) {
-            return true;
-        }
+        return $this->getRedirectUrl() ? true : false;
     }
 
     public function getRedirectUrl()
     {
-        if ($url = $this->getRedirectAuthorizationUrl()) {
-            return $url;
-        }
+        return $this->getRedirectAuthorizationUrl();
     }
 
     public function getRedirectAuthorizationUrl()
     {
-        if (array_key_exists('operations', $this->getData())) {
-            foreach (($this->getData()['operations']) as $operation) {
+        if (isset($this->data['operations'])) {
+            foreach (($this->data['operations']) as $operation) {
                 if ($operation['rel'] == 'redirect-authorization') {
                     return $operation['href'];
                 }
@@ -67,13 +76,21 @@ class Response extends AbstractResponse implements RedirectResponseInterface
         }
     }
 
-    public function getData()
+    public function getMessage()
     {
-        return $this->data;
+        if (isset($this->data['status']) && isset($this->data['type'])) {
+            return $this->data['title'];
+        }
+
+        return null;
     }
 
-    public function getRedirectMethod()
+    public function getCode()
     {
-        return "GET";
+        if (isset($this->data['status']) && isset($this->data['type'])) {
+            return $this->data['status'];
+        }
+
+        return null;
     }
 }

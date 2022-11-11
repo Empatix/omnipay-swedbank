@@ -8,31 +8,6 @@ use Empatix\OmnipaySwedbank\Messages\PurchaseRequest;
 
 class AnnulRequest extends PurchaseRequest
 {
-    public function setPassword($value)
-    {
-        $this->setParameter('password', $value);
-    }
-
-    public function getPassword()
-    {
-        return $this->getParameter('password');
-    }
-
-    public function getMerchantId()
-    {
-        return $this->getParameter('merchantId');
-    }
-
-    public function setPayeeReference($value)
-    {
-        $this->setParameter('payeeReference', $value);
-    }
-
-    public function getPayeeReference()
-    {
-        return $this->getParameter('payeeReference');
-    }
-
     public function getData()
     {
         return [
@@ -44,7 +19,7 @@ class AnnulRequest extends PurchaseRequest
     }
 
     public function sendData($data)
-     {
+    {
         $result = $this->httpClient->request(
             'POST',
             $this->getEndpoint() . $this->resource,

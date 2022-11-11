@@ -6,7 +6,7 @@ use Omnipay\Tests\TestCase;
 use Empatix\OmnipaySwedbank\Messages\Response;
 use Empatix\OmnipaySwedbank\Messages\AnnulRequest;
 
-class AnnualRequestTest extends TestCase
+class AnnulRequestTest extends TestCase
 {
     private $request;
     private $httpRequest;
