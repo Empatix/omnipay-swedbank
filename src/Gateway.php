@@ -14,6 +14,8 @@ class Gateway extends AbstractGateway
     public function getDefaultParameters()
     {
         return [
+            'merchantId' => '',
+            'password' => '',
             'testMode' => false,
         ];
     }

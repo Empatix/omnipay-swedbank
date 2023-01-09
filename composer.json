@@ -1,6 +1,6 @@
 {
     "name": "empatix/omnipay-swedbank",
-    "description": "Swedbank Payment driver for Omnipay",
+    "description": "Swedbank driver for the Omnipay payment processing library",
     "keywords": [
         "empatix",
         "omnipay",
@@ -11,9 +11,16 @@
     "type": "library",
     "authors": [
         {
+            "name": "Lars Harald Hvidsten",
+            "email": "lars.harald.hvidsten@pindena.no"
+        },
+        {
+            "name": "Tommy Leirvik",
+            "email": "tommyl@coretrek.no"
+        },
+        {
             "name": "Martin Schei",
-            "email": "martin.schei@empatix.no",
-            "role": "Developer"
+            "email": "martin.schei@empatix.no"
         }
     ],
     "autoload": {

@@ -52,6 +52,11 @@ class PurchaseRequest extends AbstractRequest
         return $this->getParameter('afterUrl');
     }
 
+    public function setMerchantId($value)
+    {
+        return $this->setParameter('merchantId', $value);
+    }
+
     public function getMerchantId()
     {
         return $this->getParameter('merchantId');
@@ -110,10 +115,12 @@ class PurchaseRequest extends AbstractRequest
             json_encode($data)
         );
 
-        return $this->response = new Response(
+        $this->response = new Response(
             $this,
             json_decode($result->getBody()->getContents(), true)
         );
+
+        return $this->response;
     }
 
     public function getData()

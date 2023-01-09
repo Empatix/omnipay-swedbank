@@ -15,9 +15,11 @@ class CompletePurchaseRequest extends PurchaseRequest
             'Authorization' => 'Bearer ' . $this->getPassword(),
         ]);
 
-        return $this->response = new Response(
+        $this->response = new Response(
             $this,
             json_decode($httpResponse->getBody()->getContents(), true)
         );
+
+        return $this->response;
     }
 }
