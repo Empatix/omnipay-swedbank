@@ -64,12 +64,6 @@ Date: Fri, 22 Feb 2013 15:55:07 GMT
             "contentType": "application/javascript"
         },
         {
-            "method": "GET",
-            "href": "https://ecom.externalintegration.payex.com/creditcard/payments/authorize/ec2a9b09-601a-42ae-8e33-a5737e1cf177",
-            "rel": "redirect-authorization",
-            "contentType": "text/html"
-        },
-        {
             "method": "POST",
             "href": "https://api.externalintegration.payex.com/psp/creditcard/payments/7e6cdfc3-1276-44e9-9992-7cf4419750e1/captures",
             "rel": "create-capture",
