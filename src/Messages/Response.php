@@ -16,6 +16,10 @@ class Response extends AbstractResponse implements RedirectResponseInterface
 
     public function isSuccessful()
     {
+        if ($this->isRedirect()) {
+            return false;
+        }
+
         if (isset($this->data['reversal']['transaction']['state'])) {
             return 'Completed' === $this->data['reversal']['transaction']['state'];
         }
